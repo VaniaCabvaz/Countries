@@ -9,7 +9,8 @@ module.exports = (sequelize) => {
         allowNull: false,
     },
     difficulty:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.ENUM,
+        values: ['1','2','3','4','5'],
         allowNull: true
     },
      duration:{
