@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {getActivities, getActivity, ascAlphabet, orderContinent, getCountries } from '../../../actions';
+import {getActivities, getActivity, ascAlphabet, orderContinent} from '../../../actions';
 import AllCountries from '../Countries/allcountries';
 import Pagination from '../pagination/pagination';
 import './searcher.css'
