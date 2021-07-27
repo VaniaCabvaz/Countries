@@ -1,0 +1,13 @@
+.pagination{
+    display: inline-block;
+    padding: 15px 20px;
+    border: 2px solid;
+    cursor: pointer;
+   
+}
+
+
+.list{
+    position: fixed;
+   
+}

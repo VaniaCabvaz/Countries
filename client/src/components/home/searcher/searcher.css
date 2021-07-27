@@ -1,0 +1,43 @@
+.container-search{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    
+}
+
+
+.search-select{
+    appearance: none;
+    margin: 20px 0;
+    padding: 10px 50px 10px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid;
+    color: rgb(98, 31, 98);
+    cursor: pointer;
+    text-align-last: center;   
+}
+
+.search-select:hover{
+    transition: 0.4;
+    background-color: rgb(98, 31, 98);
+    color: white;
+    
+}
+
+.select-continent{
+    width: 300px;
+}
+
+.select-order{
+    margin-left: 10px;
+    width: 150px;
+   
+}
+
+.activities{
+    margin-left: auto;
+    margin-right: 20px;
+    width: auto;
+}
