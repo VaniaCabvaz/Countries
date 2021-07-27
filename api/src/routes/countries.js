@@ -8,8 +8,7 @@ router.get('/countries', async (req, res)=>{
     const {name, continent, order, all, orders } = req.query;
     
     const DataBase = await Country.findAll({
-        // limit:10,
-        // offset: offset
+        
     });
 
     if(all){
