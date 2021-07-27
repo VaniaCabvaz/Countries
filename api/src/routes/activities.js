@@ -2,33 +2,10 @@ const {Router} = require('express');
 const router = Router();
 const {Country, Activity} = require("../db");
 const Sequelize  = require('sequelize');
+const { Op } = require("sequelize");
 
 
-router.post('/test', async (req, res)=>{
-    const {name, difficulty, duration, season, country}= req.body;
-    console.log(name, difficulty, duration, season, country);
-      Activity.create({
-            name,
-            difficulty,
-            duration,
-            season,
-      }).then(async (activitySave) => {
-          await activitySave.addCountry(country); 
-          return activitySave;
-        })
-        .then(async (activitySave) => {
-          const result = await Activity.findOne({
-            where: { id: activitySave.id },
-            include: [Country],
-          });
-          return result;
-        })
-        .then((activitySave) => res.send(activitySave));
-    }
-);
-
-
-router.post('/test1', async (req, res)=>{
+router.post('/activity', async (req, res)=>{
    const {name, difficulty, duration, season, country}= req.body;
    console.log(name, difficulty, duration, season, country);
     try{
@@ -47,6 +24,28 @@ router.post('/test1', async (req, res)=>{
     
  
    });
+
+   router.get('/activity', async (req, res)=>{
+      const {name, all} = req.query;
+      if(all){
+         const activity = await Activity.findAll( {include: Country} );
+         return activity ? res.json(activity) : res.sendStatus(400);
+      }
+      else {
+         const activity = await Activity.findAll(
+            {
+               where: {
+                  name:{ [Op.iLike]: `%${name}%` } 
+                      }
+                      
+            },
+            {include: Country}
+         );
+         return activity ? res.json(activity) : res.sendStatus(400);
+      }
+      
+   })
+
 
 
 
