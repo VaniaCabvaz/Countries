@@ -21,6 +21,14 @@ export const getCountries = () => {
     }
 }
 
+// export const getCountries = () => {
+//     return  (dispatch) => {
+//          axios.get("http://localhost:3001/countries").then((countries)=>{
+//             dispatch({ type: GET_COUNTRIES, payload: countries.data })
+//          })
+//     }
+// }
+
 
 export const getActivities = () =>{
     return async (dispatch) => {

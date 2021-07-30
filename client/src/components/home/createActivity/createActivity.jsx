@@ -4,6 +4,7 @@ import { getCountries, addActivity, ascAlphabet } from '../../../actions';
 import './createActivity.css'
 
 
+
 export default function CreateActivity (){
     const dispatch = useDispatch();
     const countries = useSelector(state=>state.countries);
@@ -12,17 +13,15 @@ export default function CreateActivity (){
     const [duration, setDuration]= useState(0);
     const [season, setSeason]= useState("");
     const [countryS, setCountryS]= useState("");
-    const [country, setCountry]= useState([])
+    const [country, setCountry]= useState([]);
+    
    
 
     useEffect(() => {
         dispatch(getCountries(countryS));
       }, [countryS, dispatch]);
 
-      useEffect(() => {
-        dispatch(ascAlphabet("A-Z"));
-      }, [dispatch], console.log([dispatch]));
-
+    
 
     function handleChangeName(e){
         let name= e.target.value;
@@ -47,16 +46,18 @@ export default function CreateActivity (){
 
     function handleChangeCountriesSelected (e){
         e.preventDefault()
-        setCountry([...country, countryS]) 
+        setCountry([...country, countryS])
     }
 
     function handleSubmit(){
         if(name && difficulty && duration && season && country){
-            console.log(name, difficulty, duration, season, country)
+            console.log(name && difficulty && duration && season && country)
             addActivity(name, difficulty, duration, season, country)
+            alert("actividad agregada")
         }
     }
         
+    console.log(country)
 
     return (
         <>
@@ -75,7 +76,7 @@ export default function CreateActivity (){
                     </div>
                     <div>
                         <select className="container-inputs" onChange={(e)=>handleChangeDifficulty(e)}>
-                            <option>Select a difficulty</option>
+                            <option >Select a difficulty</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -97,7 +98,7 @@ export default function CreateActivity (){
                 </div>
                     <div>
                     <select className="container-inputs"  onChange={(e)=>handleChangeSeason(e)}>
-                        <option>Select a season</option>
+                        <option >Select a season</option>
                         <option>Spring</option>
                         <option>Summer</option>
                         <option>Autumn</option>
@@ -107,7 +108,7 @@ export default function CreateActivity (){
                 </div>
                 <div className="sub-container-2">
                 <select className="container-inputs" onChange={(e)=>handleChangeCountry(e)}>
-                    <option>Select a country</option>
+                    <option >Select a country</option>
                 
                         {
                             countries.map((elemento)=>(
@@ -120,6 +121,7 @@ export default function CreateActivity (){
                 </select>
                 <button className="buttons-form" onClick={(e)=>handleChangeCountriesSelected(e)} >+</button>
                 </div>
+                
                 <div className="sub-container-button">
                     <button  className="button-form-submit" type="submit" onClick={handleSubmit}>
                     Add Activity

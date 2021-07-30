@@ -2,7 +2,6 @@ import React from "react";
 import './App.css';
 import {Route} from 'react-router-dom';
 import Nav from './components/nav/nav';
-import Nav2 from './components/nav/nav2'
 import Landing from './components/landing';
 import Home from './components/home/home';
 import About from './components/about/about'
@@ -26,9 +25,6 @@ function App() {
       </Route>
       <Route exact path='/about'>
         <About/>
-      </Route>
-      <Route path='/countries'>
-      <Nav2/>
       </Route>
       <Route path='/countries/:id'>
       <Detail/>

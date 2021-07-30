@@ -75,9 +75,6 @@ export default function Searcher (){
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
-console.log(orders)
-console.log(continent)
-
 
     return(
         <>

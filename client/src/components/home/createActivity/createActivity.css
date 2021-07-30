@@ -51,6 +51,7 @@
     border-left: none;
     background-color: thistle;
     color:mediumorchid;
+    cursor: pointer;
 }
 
 .span-form{
@@ -80,5 +81,6 @@
     height: 60px;
     color: white;
     background-color: rgb(98, 31, 98);
+    cursor: pointer;
 }
 

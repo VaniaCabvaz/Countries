@@ -6,10 +6,9 @@ import './nav.css';
 import worldLogo from './world-logo.png'
 import {FaSearch} from 'react-icons/fa'
 
-export default function Home (){
+export default function Nav (){
     const dispatch = useDispatch();
     const [name, setName] = useState(null);
-
     const [Search, setSearch] = useState(true);
 
     function toggle() {

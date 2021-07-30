@@ -19,7 +19,6 @@ export default function AllCountries ({countries}){
                             <Link className="linkto" to={`/countries/${elemento.id}`}>
                             <div className="name link">
                             <h3 key={elemento.id}>{elemento.name}</h3>
-                           
                             </div>
                             <div className="flag">
                              <img  className="image" src={elemento.image} alt="flag"/> 
