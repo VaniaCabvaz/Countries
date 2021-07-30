@@ -45,13 +45,13 @@ const agent = session(app);
 
   });
 
-  describe('GET /activity', () => {
-    it('should get 200 and all the activities', done => {
-      agent.get('/activity?all=all')
-      .expect('Content-Type', /json/)
-      .expect(200, done)
-    });
-  });
+  // describe('GET /activity', () => {
+  //   it('should get 200 and all the activities', done => {
+  //     agent.get('/activity?all=all')
+  //     .expect('Content-Type', /json/)
+  //     .expect(200, done)
+  //   });
+  // });
 
 
 

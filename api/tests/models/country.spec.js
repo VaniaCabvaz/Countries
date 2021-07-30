@@ -1,4 +1,4 @@
-const { Country, conn } = require('../../src/db.js');
+const { Country, Activity, conn } = require('../../src/db.js');
 const { expect } = require('chai');
 
 describe('Country model', () => {
@@ -16,6 +16,22 @@ describe('Country model', () => {
       });
       it('should work when its a valid name', () => {
         Country.create({ name: 'Argentina' });
+      });
+    });
+  });
+});
+
+describe('Activity model', () => {
+  describe('Validators', () => {
+    beforeEach(() => Activity.sync({ force: true }));
+    describe('name', () => {
+      it('should throw an error if duration is string', (done) => {
+        Activity.create({duration:"12 minutes"})
+          .then(() => done(new Error('It requires a valid duration')))
+          .catch(() => done());
+      });
+      it('should work when its a valid type', () => {
+        Activity.create({ duration: 30 });
       });
     });
   });
