@@ -26,16 +26,7 @@ router.get('/countries', async (req, res)=>{
         return country ? res.json(country) : res.sendStatus(404)
     }
 
-    // if (continent ){
-    //     const country = await Country.findAll({
-    //         where: {
-    //             continent:{ [Op.iLike]: `%${continent}%` } 
-    //                 }
-                    
-    //     })
-    //     return country ? res.json(country) : res.sendStatus(404)
-    // }
-    
+
     console.log(continent, orders)
     if (continent && orders === "null" ){
         
@@ -89,8 +80,7 @@ router.get('/countries', async (req, res)=>{
                 return country ? res.json(country) : res.sendStatus(404)
             }
 
-        
-
+           
         }
             
         
@@ -133,7 +123,7 @@ router.get('/countries', async (req, res)=>{
     else {
         const countries = await axios.get('https://restcountries.eu/rest/v2/all');
         countries.data.forEach(async (country) => {
-            //try
+          
                 await Country.findOrCreate({
                     where: {
                         id: country.alpha3Code,
@@ -146,7 +136,7 @@ router.get('/countries', async (req, res)=>{
                         population: country.population
                     }
                 });
-            //catch
+            
                     })
                     return DataBase ? res.json(DataBase) : res.sendStatus(404)     
     }

@@ -31,18 +31,18 @@ router.post('/activity', async (req, res)=>{
          const activity = await Activity.findAll( {include: Country} );
          return activity ? res.json(activity) : res.sendStatus(400);
       }
-      // else {
-      //    const activity = await Activity.findAll(
-      //       {
-      //          where: {
-      //             name:{ [Op.iLike]: `%${name}%` } 
-      //                 }
+      else {
+         const activity = await Activity.findAll(
+            {
+               where: {
+                  name:{ [Op.iLike]: `%${name}%` } 
+                      }
                       
-      //       },
-      //       {include: Country}
-      //    );
-      //    return activity ? res.json(activity) : res.sendStatus(400);
-      // }
+            },
+            {include: Country}
+         );
+         return activity ? res.json(activity) : res.sendStatus(400);
+      }
       
    })
 
