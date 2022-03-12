@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './countries.css'
 
 
-
+// nuevo comentario
 export default function AllCountries ({countries}){
 
     return(
